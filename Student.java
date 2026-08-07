@@ -32,4 +32,9 @@ public class Student {
     public void setStdName(String stdName) {
         this.stdName = stdName;
     }
+
+    @Override
+        public String toString() {
+            return "ID: " + stdId + " | Name: " + stdName;
+        }
 }
