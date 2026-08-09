@@ -1,3 +1,4 @@
+package models;
 /**
  * Represents an academic course in the Student Management System
  * Stores course details including the course code and title
@@ -19,22 +20,30 @@ public class Course {
         this.title = title;
     }
 
-    //Gets course code
+    /**
+    * Gets course code
+    */
     public String getCourseCode() {
         return courseCode;
     }
 
-    //Sets course code
+    /**
+    * Sets course code
+    */
     public void setCourseCode(String courseCode) {
         this.courseCode = courseCode;
     }
 
-    //Gets course title
+    /**
+    * Gets course title
+    */
     public String getTitle() {
         return title;
     }
 
-    //Sets course title
+    /**
+    * Sets course title
+    */
     public void setTitle(String title) {
         this.title = title;
     }

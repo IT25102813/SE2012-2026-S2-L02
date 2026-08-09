@@ -1,3 +1,4 @@
+package models;
 /**
 * Student function
 * Stores student ID and Name
@@ -14,21 +15,29 @@ public class Student {
         this.stdName = stdName;
     }
 
-    // Getter for stdId
+    /**
+    * Getter for stdId
+    */
     public String getStdId() {
         return stdId;
     }
-    // Setter for stdId
+    /**
+    * Setter for stdId
+    */
     public void setStdId(String stdId) {
         this.stdId = stdId;
     }
 
-    // Getter for stdName
+    /**
+    * Getter for stdName
+    */
     public String getStdName() {
         return stdName;
     }
 
-    // Setter for stdName
+    /**
+    * Setter for stdName
+    */
     public void setStdName(String stdName) {
         this.stdName = stdName;
     }

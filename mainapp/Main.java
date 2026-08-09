@@ -1,4 +1,9 @@
+package mainapp;
+
 import java.util.Scanner;
+import models.Student;
+import services.EnrollmentManager;
+
 /**
  * Entry point for the Student Management System application
  * Manages user interactions and add, list students
