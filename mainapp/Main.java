@@ -13,8 +13,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         EnrollmentManager manager = new EnrollmentManager();
 
-        Student[] students = new Student[100];
-
         boolean running = true;
 
         while(running) {
