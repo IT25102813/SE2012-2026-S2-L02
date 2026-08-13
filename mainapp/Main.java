@@ -11,10 +11,9 @@ import services.EnrollmentManager;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        EnrollmentManager manager = new EnrollmentManager();
 
         Student[] students = new Student[100];
-
-        int stdCount = 0;
 
         boolean running = true;
 
@@ -22,7 +21,9 @@ public class Main {
             System.out.println("\n Student Management System ");
             System.out.println("1. Add Student");
             System.out.println("2. List Student");
-            System.out.println("3. Exit");
+            System.out.println("3. Search Student by ID");
+            System.out.println("4. Sort Students by Name");
+            System.out.println("5. Exit");
             System.out.println("Enter your choice: ");
 
             int choice = scanner.nextInt();
@@ -36,28 +37,53 @@ public class Main {
                     System.out.print("Enter Student Name: ");
                     String name = scanner.nextLine();
 
-                    students[stdCount] = new Student(id, name);
-                    stdCount++;
+                    if (manager.addStudent(new Student(id, name))) {
+                        System.out.println("Student added successfully");
+                    } else {
+                        System.out.println("Student list already fulled");
+                    }
 
-                    System.out.println("Student Added");
                     break;
 
                 case 2:
                     System.out.println("\n Enrolled Students ");
 
-                    if (stdCount == 0) {
-                        System.out.println("No student added");
-                    }
-                    else {
-                        for (int i = 0; i < stdCount; i++) {
-                            System.out.println("Student #"+ (i+1) +
-                                "\nStudent ID: " + students[i].getStdId() +
-                                "\nStudent Name: " + students[i].getStdName());
+                    if (manager.getStudentCount() == 0) {
+                        System.out.println("No Student found");
+                    } else {
+                        Student[] list = manager.getStudents();
+                        for (int i = 0; i < list.length; i++) {
+                            System.out.printf("%d. %s%n", (i+1), list[i].toString());
                         }
                     }
+
                     break;
 
                 case 3:
+                    System.out.print("Enter Student ID to Search: ");
+                    String searchId = scanner.nextLine();
+
+                    Student found = manager.searchStudentById(searchId);
+
+                    if (found != null) {
+                        System.out.println("Student Found -> " + found);
+                    } else {
+                        System.out.println("No student found with ID: " + searchId);
+                    }
+
+                    break;
+
+                case 4:
+                    if (manager.getStudentCount() == 0) {
+                        System.out.println("No students available to sort");
+                    } else {
+                        manager.sortStudentsByName();
+                        System.out.println("Students successfully sorted alphabetically by name");
+                    }
+
+                    break;
+
+                case 5:
                     System.out.println("Exiting Application");
                     running = false;
                     break;
